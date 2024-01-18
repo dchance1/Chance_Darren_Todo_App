@@ -16,8 +16,28 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+//        ToDoList toDoList = new ToDoList("Bills Due");
+//        toDoList.add(new ToDoListItem("Light bill"));
+//        toDoList.add(new ToDoListItem("Phone bill"));
+//        toDoList.add(new ToDoListItem("Youtube TV"));
+//        toDoList.add(new ToDoListItem("Spotify"));
+
+//        System.out.println(toDoList.listName());
+//        //Collections.sort(toDoList.getList(), Collections.reverseOrder());
+//        Collections.sort(toDoList.getList());
+//
+//        int i = 1;
+//        for (ToDoListItem item : toDoList.getList()) {
+//
+//            System.out.println(i + ". " + item.getTitle());
+//            i++;
+//
+//
+//
+//        }
+
+
         Scanner in = new Scanner(System.in);
-        ArrayList<String> toDoList = new ArrayList<String>();
         String fileName = "todo.txt";
         String choice;
 
@@ -29,25 +49,27 @@ public class Main {
                 "-".repeat(40) + "\n";
         System.out.printf(menu);
 
+        ToDoList toDoList = new ToDoList("Bills Due");
+
         choice = in.nextLine();
         while (true) {
             switch (choice) {
                 case "1":
-                    System.out.printf("Enter list text: ");
-                    toDoList.add(in.nextLine());
+                    System.out.printf("Enter list item: ");
+                    //toDoList.add(in.nextLine());
                     break;
                 case "2":
                     System.out.println("This feature is not available yet");
                     break;
                 case "3":
-                    Data.saveFile(fileName,toDoList);
+                    //Data.saveFile(fileName,toDoList);
                     System.exit(0);
                 case "4":
                     System.out.println("-".repeat(40));
                     System.out.println("|"+" ".repeat(2)+"to-do-list");
                     System.out.println("-".repeat(40));
-                    Collections.sort(toDoList);
-                    for (String item : toDoList) {
+                    //Collections.sort(toDoList);
+                    for (ToDoListItem item : toDoList.getList()) {
                         System.out.println("-- "+ item);
                     }
                     System.out.println("-".repeat(40));
@@ -59,14 +81,6 @@ public class Main {
 
         }
 
-
-    }
-
-
-    private static void displayList(ArrayList<String> toListItems) {
-        for (String item : toListItems) {
-            System.out.println(item);
-        }
 
 
     }
