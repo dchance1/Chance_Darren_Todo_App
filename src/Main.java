@@ -57,6 +57,7 @@ public class Main {
                 case "1":
                     System.out.printf("Enter list item: ");
                     //toDoList.add(in.nextLine());
+                    toDoList.add(new ToDoListItem(in.nextLine()));
                     break;
                 case "2":
                     System.out.println("This feature is not available yet");
@@ -70,14 +71,13 @@ public class Main {
                     System.out.println("-".repeat(40));
                     //Collections.sort(toDoList);
                     for (ToDoListItem item : toDoList.getList()) {
-                        System.out.println("-- "+ item);
+                        System.out.println("-- "+ item.getTitle());
                     }
                     System.out.println("-".repeat(40));
                     break;
             }
             System.out.println("Select menu item:");
             choice = in.nextLine();
-
 
         }
 
