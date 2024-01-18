@@ -3,6 +3,16 @@ public class ToDoListItem implements Comparable<ToDoListItem> {
     private String title;
     private String notes;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
+
     public ToDoListItem(String title) {
         this.title = title;
     }
