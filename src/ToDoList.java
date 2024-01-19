@@ -14,9 +14,9 @@ public class ToDoList {
     }
 
     public void removeId(int id) {
-        if(itemIds.size()==1){
+        if (itemIds.size() == 1) {
             itemIds.clear();
-        }else {
+        } else {
             //this.itemIds.remove(id);
             this.itemIds.remove(Integer.valueOf(1));
         }
@@ -25,10 +25,7 @@ public class ToDoList {
 
     public void reorder() {
         int num = 0;
-        for (ToDoListItem item : this.list) {
-            num++;
-            item.setId(num);
-        }
+        refreshList();
     }
 
     public void sortByTitle(final int sortOrder) {
@@ -55,35 +52,35 @@ public class ToDoList {
         this.title = title;
     }
 
-    public ToDoList(String title, ArrayList<ToDoListItem> stringArrayList) {
-        this.title = title;
-        this.list = stringArrayList;
+    public void add(ToDoListItem item) {
+        int listSize = this.list.size();
 
+        // iterate through list and re-sets id's, so they can be in order
+        refreshList();
+        // sets id to be the next number after the last number in the list then adds item to ToDoList
+        item.setId(listSize + 1);
+        list.add(item);
     }
 
-    public void add(ToDoListItem item) {
-        int listSize = this.itemIds.size();
-        int tempNum = 0;
-        HashSet<Integer> tempSet = new HashSet<Integer>(itemIds);
+    private void refreshList() {
         int i = 0;
-        if (!itemIds.contains(listSize + 1)) {
-            item.setId(listSize + 1);
-            tempNum = listSize + 1;
+        for (ToDoListItem toDoListItem : this.list) {
+            i++;
+            toDoListItem.setId(i);
+        }
+    }
 
-        } else {
-
-            for (ToDoListItem listItem : this.list) {
-                i++;
-                listItem.setId(i);
+    public int delete(int num) {
+        int id = 0;
+        for (ToDoListItem item : this.list) {
+            if (item.getId() == num) {
+                id = item.getId();
+                this.list.remove(item);
+                break;
             }
-            tempNum = i + 1;
-            item.setId(tempNum);
 
         }
-
-        this.itemIds.add(tempNum);
-        list.add(item);
-
-
+        //removeId(id);
+        return 0;
     }
 }
