@@ -1,4 +1,7 @@
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -15,7 +18,8 @@ import java.util.Scanner;
 //        item, delete an item, and provide the list of to-do items.
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
+
         Scanner in = new Scanner(System.in);
         String choice;
         String menu = "-".repeat(50) + "\n" +
@@ -29,6 +33,15 @@ public class Main {
         System.out.printf(menu);
 
         ToDoList toDoList = new ToDoList("To-do List");
+        File file = new File("To-do list.txt");
+        Path path = Paths.get(file.getName());
+        if (file.exists()){
+            System.out.println("Loading previously saved file from directory: " + path.toAbsolutePath());
+            Scanner scan = new Scanner(file);
+            while (scan.hasNextLine()){
+                toDoList.add(new ToDoListItem(scan.nextLine()));
+            }
+        }
 
         System.out.printf("Select menu item [\'v\' for menu options]: ");
         choice = in.nextLine();

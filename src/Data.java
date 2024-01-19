@@ -31,12 +31,10 @@ public class Data {
                 for (ToDoListItem item : toDoList.getList()) {
                     output.println(item.getTitle());
                 }
-
-
-                output.close();
                 Path path = Paths.get(file.getName());
                 System.out.println("New file created in directory: " + path.toAbsolutePath());
                 System.out.println("File save Successful.");
+                output.close();
                 return 1;
             } catch (FileNotFoundException e) {
                 System.out.println("You have an error: " + e);
