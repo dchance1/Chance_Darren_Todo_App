@@ -53,7 +53,7 @@ public class ToDoList {
         // sets id to be the next number after the last number in the list then adds item to ToDoList
         item.setId(listSize + 1);
         list.add(item);
-        System.out.println("[" + item.getTitle() + "] added to " + "[" + this.title + "]"+ "To do list.");
+        System.out.println("[" + item.getTitle() + "] added to " + "[" + this.title + "]" + "To do list.");
     }
 
     private void refreshList() {
@@ -73,17 +73,25 @@ public class ToDoList {
      * @return pass or fail
      */
     public int delete(int id) {
+        boolean itemExists = false;
 
         for (ToDoListItem item : this.list) {
             if (item.getId() == id) {
+                itemExists = true;
                 id = item.getId();
                 this.list.remove(item);
+                System.out.println("["+item.getTitle()+"] deleted.");
+                refreshList();
                 break;
             }
 
         }
-        refreshList();
-        //removeId(id);
+
+        if(!itemExists){
+            System.out.println("Item with id: ["+ id+"]"+ " not found.");
+
+        }
+
         return 0;
     }
 }

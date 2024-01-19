@@ -16,11 +16,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
         Scanner in = new Scanner(System.in);
-        String fileName = "todo.txt";
         String choice;
-
         String menu = "-".repeat(50) + "\n" +
                 "Menu\n" +
                 "-".repeat(50) + "\n" +
@@ -31,7 +28,7 @@ public class Main {
                 "-".repeat(50) + "\n";
         System.out.printf(menu);
 
-        ToDoList toDoList = new ToDoList("Bills Due");
+        ToDoList toDoList = new ToDoList("To-do List");
 
         System.out.printf("Select menu item [\'v\' for menu options]: ");
         choice = in.nextLine();
