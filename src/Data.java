@@ -27,8 +27,6 @@ public class Data {
                 Path path = Paths.get(file.getName());
                 System.out.println("File saved to directory: " + path.toAbsolutePath());
                 output.close();
-
-
                 return 1;
             } catch (FileNotFoundException e) {
                 System.out.println("You have an error: " + e);
@@ -50,8 +48,5 @@ public class Data {
                 return -1;
             }
         }
-
-
     }
-
 }
