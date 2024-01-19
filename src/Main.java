@@ -28,17 +28,18 @@ public class Main {
                 "1. New list item " +
                 "2. Delete list item " +
                 "3. Save\n" +
-                "4. View To Do List\n" +
+                "4. View To Do List" +
+                "5. Quit\n" +
                 "-".repeat(50) + "\n";
         System.out.printf(menu);
 
         ToDoList toDoList = new ToDoList("To-do List");
         File file = new File("To-do list.txt");
         Path path = Paths.get(file.getName());
-        if (file.exists()){
+        if (file.exists()) {
             System.out.println("Loading previously saved file from directory: " + path.toAbsolutePath());
             Scanner scan = new Scanner(file);
-            while (scan.hasNextLine()){
+            while (scan.hasNextLine()) {
                 toDoList.add(new ToDoListItem(scan.nextLine()));
             }
         }
@@ -68,7 +69,7 @@ public class Main {
                     Data.saveFile(toDoList);
                 case "4":
                     System.out.println("-".repeat(40));
-                    System.out.println("" + " ".repeat(3) +toDoList.getTitle());
+                    System.out.println("" + " ".repeat(3) + toDoList.getTitle());
                     System.out.println("-".repeat(40));
                     for (ToDoListItem item : toDoList.getList()) {
                         System.out.println(item.getId() + ". " + item.getTitle());
