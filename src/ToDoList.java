@@ -3,25 +3,18 @@ import java.util.Collections;
 import java.util.HashSet;
 
 public class ToDoList {
+    public String getTitle() {
+        return title;
+    }
+
     private String title;
     public static final int ASCENDING = 0;
     private ArrayList<ToDoListItem> list = new ArrayList<ToDoListItem>();
-    private ArrayList<Integer> itemIds = new ArrayList<Integer>();
-
 
     public String listName() {
         return title;
     }
 
-    public void removeId(int id) {
-        if (itemIds.size() == 1) {
-            itemIds.clear();
-        } else {
-            //this.itemIds.remove(id);
-            this.itemIds.remove(Integer.valueOf(1));
-        }
-
-    }
 
     public void reorder() {
         int num = 0;
@@ -60,6 +53,7 @@ public class ToDoList {
         // sets id to be the next number after the last number in the list then adds item to ToDoList
         item.setId(listSize + 1);
         list.add(item);
+        System.out.println("[" + item.getTitle() + "] added to " + "[" + this.title + "]"+ "To do list.");
     }
 
     private void refreshList() {
@@ -71,9 +65,9 @@ public class ToDoList {
     }
 
     /**
-     *Method Name: delete
+     * Method Name: delete
      * <p>
-     *     This method deletes a new book from the to do list using by it's id.
+     * This method deletes a new book from the to do list using by it's id.
      *
      * @param id ToDoListItem id.
      * @return pass or fail
@@ -88,6 +82,7 @@ public class ToDoList {
             }
 
         }
+        refreshList();
         //removeId(id);
         return 0;
     }

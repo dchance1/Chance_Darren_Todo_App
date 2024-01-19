@@ -3,21 +3,6 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 public class Data {
-    static int delete (ToDoList toDoList, int num){
-        int tempId = 0;
-        for (ToDoListItem item: toDoList.getList()){
-            if (item.getId() == num){
-                tempId = item.getId();
-                toDoList.getList().remove(item);
-                break;
-            }
-        }
-        // updating list number index to reflect removal of item.
-        toDoList.reorder();
-        toDoList.removeId(tempId);
-
-        return 0;
-    }
 
 
      static int saveFile(ToDoList toDoList) {
