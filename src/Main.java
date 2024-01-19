@@ -26,7 +26,7 @@ public class Main {
                 "1. New list item\n" +
                 "2. Delete list item\n" +
                 "3. Save\n" +
-                "4. Quit\n" +
+                "4. View To Do List\n" +
                 "-".repeat(40) + "\n";
         System.out.printf(menu);
 
@@ -40,7 +40,12 @@ public class Main {
                     toDoList.add(new ToDoListItem(in.nextLine()));
                     break;
                 case "2":
-                    System.out.println("This feature is not available yet");
+                    System.out.println("Which item would you like to delete?");
+                    int num = Integer.valueOf(in.nextLine());
+
+                    Data.delete(toDoList, Integer.valueOf(num));
+
+
                     break;
                 case "3":
                     Data.saveFile(toDoList);
@@ -50,7 +55,7 @@ public class Main {
                     System.out.println("|" + " ".repeat(2) + "to-do-list");
                     System.out.println("-".repeat(40));
                     for (ToDoListItem item : toDoList.getList()) {
-                        System.out.println("-- " + item.getTitle());
+                        System.out.println(item.getId() + "-- " + item.getTitle());
                     }
                     System.out.println("-".repeat(40));
                     break;

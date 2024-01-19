@@ -1,9 +1,25 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 public class Data {
+    static int delete (ToDoList toDoList, int num){
+        int tempId = 0;
+        for (ToDoListItem item: toDoList.getList()){
+            if (item.getId() == num){
+                tempId = item.getId();
+                toDoList.getList().remove(item);
+                break;
+            }
+        }
+        // updating list number index to reflect removal of item.
+        toDoList.reorder();
+        toDoList.removeId(tempId);
+
+        return 0;
+    }
+
+
      static int saveFile(ToDoList toDoList) {
          String fileName = toDoList.listName()+".txt";
         System.out.println("Saving list to file " + fileName);
@@ -38,6 +54,8 @@ public class Data {
                 return -1;
             }
         }
+
+
 
 
      }
