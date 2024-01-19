@@ -16,26 +16,6 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-//        ToDoList toDoList = new ToDoList("Bills Due");
-//        toDoList.add(new ToDoListItem("Light bill"));
-//        toDoList.add(new ToDoListItem("Phone bill"));
-//        toDoList.add(new ToDoListItem("Youtube TV"));
-//        toDoList.add(new ToDoListItem("Spotify"));
-
-//        System.out.println(toDoList.listName());
-//        //Collections.sort(toDoList.getList(), Collections.reverseOrder());
-//        Collections.sort(toDoList.getList());
-//
-//        int i = 1;
-//        for (ToDoListItem item : toDoList.getList()) {
-//
-//            System.out.println(i + ". " + item.getTitle());
-//            i++;
-//
-//
-//
-//        }
-
 
         Scanner in = new Scanner(System.in);
         String fileName = "todo.txt";
@@ -45,7 +25,8 @@ public class Main {
                 "-".repeat(40) + "\n" +
                 "1. New list item\n" +
                 "2. Delete list item\n" +
-                "3. Quit\n" +
+                "3. Save\n" +
+                "4. Quit\n" +
                 "-".repeat(40) + "\n";
         System.out.printf(menu);
 
@@ -56,22 +37,20 @@ public class Main {
             switch (choice) {
                 case "1":
                     System.out.printf("Enter list item: ");
-                    //toDoList.add(in.nextLine());
                     toDoList.add(new ToDoListItem(in.nextLine()));
                     break;
                 case "2":
                     System.out.println("This feature is not available yet");
                     break;
                 case "3":
-                    //Data.saveFile(fileName,toDoList);
+                    Data.saveFile(toDoList);
                     System.exit(0);
                 case "4":
                     System.out.println("-".repeat(40));
-                    System.out.println("|"+" ".repeat(2)+"to-do-list");
+                    System.out.println("|" + " ".repeat(2) + "to-do-list");
                     System.out.println("-".repeat(40));
-                    //Collections.sort(toDoList);
                     for (ToDoListItem item : toDoList.getList()) {
-                        System.out.println("-- "+ item.getTitle());
+                        System.out.println("-- " + item.getTitle());
                     }
                     System.out.println("-".repeat(40));
                     break;
@@ -80,7 +59,6 @@ public class Main {
             choice = in.nextLine();
 
         }
-
 
 
     }
