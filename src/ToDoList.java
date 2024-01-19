@@ -16,11 +16,6 @@ public class ToDoList {
     }
 
 
-    public void reorder() {
-        int num = 0;
-        refreshList();
-    }
-
     public void sortByTitle(final int sortOrder) {
         Collections.sort(this.list, Collections.reverseOrder());
     }
