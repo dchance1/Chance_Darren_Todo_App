@@ -70,10 +70,18 @@ public class ToDoList {
         }
     }
 
-    public int delete(int num) {
-        int id = 0;
+    /**
+     *Method Name: delete
+     * <p>
+     *     This method deletes a new book from the to do list using by it's id.
+     *
+     * @param id ToDoListItem id.
+     * @return pass or fail
+     */
+    public int delete(int id) {
+
         for (ToDoListItem item : this.list) {
-            if (item.getId() == num) {
+            if (item.getId() == id) {
                 id = item.getId();
                 this.list.remove(item);
                 break;

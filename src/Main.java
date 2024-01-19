@@ -42,10 +42,7 @@ public class Main {
                 case "2":
                     System.out.println("Which item would you like to delete?");
                     int num = Integer.valueOf(in.nextLine());
-
-                    Data.delete(toDoList, Integer.valueOf(num));
-
-
+                    toDoList.delete(num);
                     break;
                 case "3":
                     Data.saveFile(toDoList);
