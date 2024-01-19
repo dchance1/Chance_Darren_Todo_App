@@ -28,7 +28,7 @@ public class Main {
                 "1. New list item " +
                 "2. Delete list item " +
                 "3. Save\n" +
-                "4. View To Do List" +
+                "4. View To Do List " +
                 "5. Quit\n" +
                 "-".repeat(50) + "\n";
         System.out.printf(menu);
