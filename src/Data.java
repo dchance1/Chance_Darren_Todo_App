@@ -12,14 +12,16 @@ public class Data {
         System.out.println("Saving list to file " + fileName);
         File file = new File(fileName);
         if (file.exists()) {
-            System.out.println("file exists");
             try {
                 PrintWriter output = new PrintWriter(file);
                 for (ToDoListItem item : toDoList.getList()) {
                     output.println(item.getTitle());
                 }
+                Path path = Paths.get(file.getName());
+                System.out.println("File saved to directory: " + path.toAbsolutePath());
                 output.close();
-                System.out.println("File save Successful.");
+
+
                 return 1;
             } catch (FileNotFoundException e) {
                 System.out.println("You have an error: " + e);

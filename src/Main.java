@@ -53,7 +53,15 @@ public class Main {
                     break;
                 case "2":
                     System.out.printf("Enter item number: ");
-                    int num = Integer.valueOf(in.nextLine());
+
+                    int num = 0;
+                    try {
+                        num = Integer.valueOf(in.nextLine());
+                    } catch (NumberFormatException e) {
+                        //throw new RuntimeException(e);
+                        System.out.println("Invalid entry! Input must be a whole number.");
+                        break;
+                    }
                     toDoList.delete(num);
                     break;
                 case "3":
