@@ -6,7 +6,14 @@ import java.nio.file.Paths;
 
 public class Data {
 
-
+    /**
+     * Method: saveFile
+     * <p>
+     * This method saves a {@code ToDoList} object to a .txt file.
+     *
+     * @param toDoList an {@code Object} of ToDoList
+     * @return the value {@code 1} if the file is saved successfully; unsuccessfully{@code -1}
+     */
     static int saveFile(ToDoList toDoList) {
         String fileName = toDoList.listName() + ".txt";
         System.out.println("Saving list to file " + fileName);
