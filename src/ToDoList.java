@@ -20,6 +20,11 @@ public class ToDoList {
         Collections.sort(this.list, Collections.reverseOrder());
     }
 
+    /**
+     * Method: sortByTitle
+     * <p>
+     * This method sorts the {@code ToDoList} items by title
+     */
     public void sortByTitle() {
         Collections.sort(this.list, Collections.reverseOrder());
     }
@@ -40,17 +45,30 @@ public class ToDoList {
         this.title = title;
     }
 
-    public void add(ToDoListItem item) {
+    /**
+     * Method: add
+     * <p>
+     * This method adds a {@code ToDoListItem Object}  to a {@code ToDoList Object}
+     *
+     * @param toDoListItem an {@code Object} of ToDoList
+     * @return the value {@code 1} if the file is saved successfully; unsuccessfully{@code -1}
+     */
+    public void add(ToDoListItem toDoListItem) {
         int listSize = this.list.size();
 
         // iterate through list and re-sets id's, so they can be in order
         refreshList();
         // sets id to be the next number after the last number in the list then adds item to ToDoList
-        item.setId(listSize + 1);
-        list.add(item);
-        System.out.println("[" + item.getTitle() + "] added to " + "[" + this.title + "]" + "To do list.");
+        toDoListItem.setId(listSize + 1);
+        list.add(toDoListItem);
+        System.out.println("[" + toDoListItem.getTitle() + "] added to " + "[" + this.title + "]" + "To do list.");
     }
 
+    /**
+     * Method: refreshList
+     * <p>
+     * This method reassigns each list Item id in order. This is useful for when an item is removed or added.
+     */
     private void refreshList() {
         int i = 0;
         for (ToDoListItem toDoListItem : this.list) {
@@ -62,9 +80,9 @@ public class ToDoList {
     /**
      * Method Name: delete
      * <p>
-     * This method deletes a new book from the to do list using by it's id.
+     * This method deletes the list item from the to do list by it's id.
      *
-     * @param id ToDoListItem id.
+     * @param id a ToDoListItem id.
      * @return pass or fail
      */
     public int delete(int id) {
@@ -75,18 +93,14 @@ public class ToDoList {
                 itemExists = true;
                 id = item.getId();
                 this.list.remove(item);
-                System.out.println("["+item.getTitle()+"] deleted.");
+                System.out.println("[" + item.getTitle() + "] deleted.");
                 refreshList();
                 break;
             }
-
         }
-
-        if(!itemExists){
-            System.out.println("Item with id: ["+ id+"]"+ " not found.");
-
+        if (!itemExists) {
+            System.out.println("Item with id: [" + id + "]" + " not found.");
         }
-
         return 0;
     }
 }
