@@ -72,6 +72,7 @@ public class Main {
                     break;
                 case "3":
                     Data.saveFile(toDoList);
+                    break;
                 case "4":
                     System.out.println("-".repeat(40));
                     System.out.println("" + " ".repeat(3) + toDoList.getTitle());
