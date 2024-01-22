@@ -2,6 +2,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 
+/**
+ * Darren Chance<br>
+ * CEN 4025C - Software Development 2<br>
+ * January 19, 2024<br>
+ * ToDoList.java<br>
+ * <p>
+ * <p>
+ * The class {@code ToDoList} creates a to-do list and can store {@code ToDoListItem Objects}. This object contains
+ * functions for manipulation of the list items and data
+ */
 public class ToDoList {
     public String getTitle() {
         return title;

@@ -4,6 +4,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.Scanner;
 
 //        Write a simple to-do-item application in Java. It should support the following features,
@@ -17,6 +18,18 @@ import java.util.Scanner;
 //        application which uses a class that holds the to-do items internally and provides public methods to add an
 //        item, delete an item, and provide the list of to-do items.
 
+/**
+ * Darren Chance<br>
+ * CEN 4025C - Software Development 2<br>
+ * January 19, 2024<br>
+ * Main.java<br>
+ * <p>
+ * <p>
+ * The class {@code Main} is the entry point for the To Do List Applicatioon
+ *
+ * This app supports the following to do list functions, add a to-do item, delete a to-do item, and view to-do items.
+ * Data can also be optionally saved to an external file and retrieved at the program start.
+ */
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
 
@@ -34,15 +47,7 @@ public class Main {
         System.out.printf(menu);
 
         ToDoList toDoList = new ToDoList("To-do List");
-        File file = new File("To-do list.txt");
-        Path path = Paths.get(file.getName());
-        if (file.exists()) {
-            System.out.println("Loading previously saved file from directory: " + path.toAbsolutePath());
-            Scanner scan = new Scanner(file);
-            while (scan.hasNextLine()) {
-                toDoList.add(new ToDoListItem(scan.nextLine()));
-            }
-        }
+        Data.loadFile(toDoList);
 
         System.out.printf("Select menu item [\'v\' for menu options]: ");
         choice = in.nextLine();
@@ -81,12 +86,8 @@ public class Main {
                 case "v":
                     System.out.printf(menu);
             }
-
             System.out.printf("Select menu item [\'v\' for menu options]: ");
             choice = in.nextLine();
-
         }
-
-
     }
 }
