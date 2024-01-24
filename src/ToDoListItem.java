@@ -55,15 +55,10 @@ public class ToDoListItem implements Comparable<ToDoListItem> {
     @Override
     public int compareTo(ToDoListItem toDoListItem) {
         if (this.title.compareTo(toDoListItem.getTitle()) > 0) {
-            //System.out.println("greater than");
             return 1;
         } else if ((this.title.compareTo(toDoListItem.getTitle()) < 0)) {
-            //System.out.println("less than");
-
             return -1;
         } else {
-            //System.out.println("equals");
-
             return 0;
         }
     }
