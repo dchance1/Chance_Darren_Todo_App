@@ -1,3 +1,14 @@
+/**
+ * Darren Chance<br>
+ * CEN 4025C - Software Development 2<br>
+ * January 19, 2024<br>
+ * ToDoListItem.java<br>
+ * <p>
+ * <p>
+ * The class {@code ToDoListItem} creates an individual to-do list item. A to-do - list item has attributes such as
+ * {@code title, notes, completed, id} for added functionality and organization. This Object can be sorted if placed
+ * into an {@code ArrayList<E>} using the {@code Collections class}.
+ */
 public class ToDoListItem implements Comparable<ToDoListItem> {
     private boolean completed = false;
     private String title;
@@ -44,15 +55,10 @@ public class ToDoListItem implements Comparable<ToDoListItem> {
     @Override
     public int compareTo(ToDoListItem toDoListItem) {
         if (this.title.compareTo(toDoListItem.getTitle()) > 0) {
-            //System.out.println("greater than");
             return 1;
         } else if ((this.title.compareTo(toDoListItem.getTitle()) < 0)) {
-            //System.out.println("less than");
-
             return -1;
         } else {
-            //System.out.println("equals");
-
             return 0;
         }
     }
